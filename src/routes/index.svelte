@@ -12,19 +12,22 @@
 	// Lanyard stuff
 	import { onMount } from 'svelte';
 	import type { useLanyard } from 'svelte-lanyard';
-	let timeZone = 'America/New_York';
 
-	const timeFormatter = new Intl.DateTimeFormat('en-US', {
+	const timeZone = 'America/Los_Angeles';
+	let timeZoneToggle = false;
+
+	$: timeFormatter = new Intl.DateTimeFormat('en-US', {
 		hour: 'numeric',
 		minute: 'numeric',
 		second: 'numeric',
-		timeZone
+		timeZone: timeZoneToggle ? timeZone : undefined
 	});
-	const dateFormatter = new Intl.DateTimeFormat('en-US', {
+	$: dateFormatter = new Intl.DateTimeFormat('en-US', {
 		month: 'long',
 		day: 'numeric',
 		year: 'numeric',
-		timeZone
+		timeZoneName: 'short',
+		timeZone: timeZoneToggle ? timeZone : undefined
 	});
 
 	let now = new Date();
@@ -65,7 +68,10 @@
 		</div>
 	</div>
 	<div class="text-ocean-900 dark:text-ocean-300 flex flex-col items-end gap-7">
-		<div class="flex flex-col items-end">
+		<div
+			class="flex flex-col items-end hover:underline cursor-pointer"
+			on:click={() => (timeZoneToggle = !timeZoneToggle)}
+		>
 			<span>{date}</span>
 			<span>{time}</span>
 		</div>
