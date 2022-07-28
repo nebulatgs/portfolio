@@ -14,6 +14,7 @@
 	import type { useLanyard } from 'svelte-lanyard';
 
 	const timeZone = 'America/New_York';
+	const isTimeZoneSame = Intl.DateTimeFormat().resolvedOptions().timeZone === timeZone;
 	let timeZoneToggle = false;
 
 	$: timeFormatter = new Intl.DateTimeFormat('en-US', {
@@ -68,13 +69,20 @@
 		</div>
 	</div>
 	<div class="text-ocean-900 dark:text-ocean-300 flex flex-col items-end gap-7">
-		<div
-			class="flex flex-col items-end hover:underline cursor-pointer"
-			on:click={() => (timeZoneToggle = !timeZoneToggle)}
-		>
-			<span>{date}</span>
-			<span>{time}</span>
-		</div>
+		{#if !isTimeZoneSame}
+			<div
+				class="flex flex-col items-end hover:underline cursor-pointer"
+				on:click={() => (timeZoneToggle = !timeZoneToggle)}
+			>
+				<span>{date}</span>
+				<span>{time}</span>
+			</div>
+		{:else}
+			<div class="flex flex-col items-end">
+				<span>{date}</span>
+				<span>{time}</span>
+			</div>
+		{/if}
 		{#if $data?.spotify}
 			<div class="flex flex-col items-end">
 				<span class="text-ocean-900 dark:text-ocean-100">{$data.spotify?.song}</span>
