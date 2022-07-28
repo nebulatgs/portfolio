@@ -4,7 +4,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				cascadia: ['CaskaydiaCove Nerd Font Mono', 'Cascadia Code', 'monospace']
+				cascadia: ['CaskaydiaCove Nerd Font Mono', 'monospace']
 			},
 			colors: {
 				ocean: {
