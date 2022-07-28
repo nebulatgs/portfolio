@@ -13,7 +13,7 @@
 	import { onMount } from 'svelte';
 	import type { useLanyard } from 'svelte-lanyard';
 
-	const timeZone = 'America/Los_Angeles';
+	const timeZone = 'America/New_York';
 	let timeZoneToggle = false;
 
 	$: timeFormatter = new Intl.DateTimeFormat('en-US', {
