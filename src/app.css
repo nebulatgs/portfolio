@@ -4,11 +4,11 @@
 
 @font-face {
 	font-family: 'CaskaydiaCove Nerd Font Mono';
-	src: url('CaskaydiaCoveNerdFontCompleteM-.eot');
-	src: url('CaskaydiaCoveNerdFontCompleteM-.eot?#iefix') format('embedded-opentype'),
-		url('CaskaydiaCoveNerdFontCompleteM-.woff2') format('woff2'),
-		url('CaskaydiaCoveNerdFontCompleteM-.woff') format('woff'),
-		url('CaskaydiaCoveNerdFontCompleteM-.ttf') format('truetype');
+	src: url('/CaskaydiaCoveNerdFontCompleteM-.eot');
+	src: url('/CaskaydiaCoveNerdFontCompleteM-.eot?#iefix') format('embedded-opentype'),
+		url('/CaskaydiaCoveNerdFontCompleteM-.woff2') format('woff2'),
+		url('/CaskaydiaCoveNerdFontCompleteM-.woff') format('woff'),
+		url('/CaskaydiaCoveNerdFontCompleteM-.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
