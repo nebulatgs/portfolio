@@ -3,6 +3,15 @@
 </script>
 
 <script lang="ts">
+	import { DateTime } from 'luxon';
+	// Components
+	import Branch from '$lib/components/Branch.svelte';
+	import Language from '$lib/components/Language.svelte';
+	import Workspace from '$lib/components/Workspace.svelte';
+	import { getCodeData, getOtherActivities } from '$lib/rpcUtils';
+	// Lanyard stuff
+	import { onMount } from 'svelte';
+	import type { useLanyard } from 'svelte-lanyard';
 	let timeZone = 'America/New_York';
 
 	const timeFormatter = new Intl.DateTimeFormat('en-US', {
@@ -26,22 +35,13 @@
 	$: date = dateFormatter.format(now);
 	$: time = timeFormatter.format(now);
 
-	// Components
-	import Branch from '$lib/components/Branch.svelte';
-	import Language from '$lib/components/Language.svelte';
-	import Workspace from '$lib/components/Workspace.svelte';
-	import { getCodeData } from '$lib/getCodeData';
-	// Lanyard stuff
-
-	import { onMount } from 'svelte';
-	import type { useLanyard } from 'svelte-lanyard';
-
 	let data: ReturnType<typeof useLanyard>;
 	onMount(async () => {
 		const { useLanyard } = await import('svelte-lanyard');
 		data = useLanyard('524722785302609941');
 	});
 	$: codeData = getCodeData($data);
+	$: otherActivities = getOtherActivities($data);
 </script>
 
 <svelte:head>
@@ -93,6 +93,22 @@
 					<span class="text-ocean-700 dark:text-ocean-200">{codeData.lang}</span>
 				</span>
 			</div>
+		{/if}
+		{#if otherActivities}
+			{#each otherActivities as activity}
+				<div class="flex flex-col items-end">
+					<span class="text-ocean-700 dark:text-ocean-400"
+						>playing <span class="text-ocean-700 dark:text-ocean-200">{activity.name}</span>
+						{#if activity.start}
+							for {DateTime.fromJSDate(activity.start)
+								.toRelative({
+									base: DateTime.fromJSDate(now)
+								})
+								?.replace(' ago', '')}
+						{/if}
+					</span>
+				</div>
+			{/each}
 		{/if}
 	</div>
 </section>

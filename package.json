@@ -16,6 +16,7 @@
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@types/cookie": "^0.5.1",
+		"@types/luxon": "^3.0.0",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
 		"autoprefixer": "^10.4.7",
@@ -35,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"luxon": "^3.0.1",
 		"svelte-lanyard": "^1.0.2"
 	}
 }

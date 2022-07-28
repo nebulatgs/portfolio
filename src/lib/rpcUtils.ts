@@ -7,8 +7,15 @@ interface VSCodeData {
     branch?: string,
     idling?: boolean,
 }
+
+interface Activity {
+    name: string,
+    start?: Date
+}
+
 export const getCodeData = (data: ExtractData<ReturnType<typeof useLanyard>>): VSCodeData | undefined => {
-    const codeActivity = data?.activities?.find?.(a => a.type === 0);
+    // Unknown cast is a workaround for the fact that `application_id` is a string but the interface is wrong
+    const codeActivity = data?.activities?.find?.(a => a.application_id as unknown as string === '782685898163617802');
 
     if (!codeActivity) {
         return undefined;
@@ -30,4 +37,10 @@ export const getCodeData = (data: ExtractData<ReturnType<typeof useLanyard>>): V
         workspace,
         branch,
     }
+}
+
+export const getOtherActivities = (data: ExtractData<ReturnType<typeof useLanyard>>): Activity[] | undefined => {
+    // Unknown cast is a workaround for the fact that `application_id` is a string but the interface is wrong
+    const otherActivities = data?.activities?.filter?.(a => a.application_id as unknown as string !== '782685898163617802' && a.type === 0);
+    return otherActivities?.map?.(activity => ({ name: activity.name, start: activity.timestamps ? new Date(activity.timestamps.start) : undefined }));
 }
