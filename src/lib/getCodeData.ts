@@ -5,16 +5,25 @@ interface VSCodeData {
     lang?: string,
     workspace?: string,
     branch?: string,
+    idling?: boolean,
 }
 export const getCodeData = (data: ExtractData<ReturnType<typeof useLanyard>>): VSCodeData | undefined => {
-    const isCode = data?.activities?.[0].name === 'Code';
-    if (!isCode) {
+    const codeActivity = data?.activities?.find?.(a => a.type === 0);
+
+    if (!codeActivity) {
         return undefined;
     }
 
-    const workspace = data?.activities?.[0].details?.substring(3).split(' - ')[0];
-    const branch = data?.activities?.[0].details?.substring(3).split(' - ')[1];
-    const lang = data?.activities?.[0].assets?.large_text?.split(' ')[2].toLocaleLowerCase();
+    const idling = codeActivity?.details === 'Idling';
+    if (idling) {
+        return {
+            idling: true,
+        }
+    }
+
+    const workspace = codeActivity.details?.substring(3).split(' - ')[0];
+    const branch = codeActivity.details?.substring(3).split(' - ')[1];
+    const lang = codeActivity.assets?.large_text?.split(' ')[2]?.toLocaleLowerCase();
 
     return {
         lang,

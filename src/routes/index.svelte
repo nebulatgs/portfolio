@@ -76,9 +76,15 @@
 				<span class="text-ocean-700 dark:text-ocean-400">{$data.spotify?.album}</span>
 			</div>
 		{/if}
-		{#if codeData}
+		{#if codeData?.idling}
 			<div class="flex flex-col items-end">
-				<span class="text-ocean-900 dark:text-ocean-100">Code</span>
+				<span class="text-ocean-900 dark:text-ocean-100">vsc</span>
+				<span class="text-ocean-700 dark:text-ocean-400">currently idling </span>
+			</div>
+		{/if}
+		{#if codeData && !codeData.idling}
+			<div class="flex flex-col items-end">
+				<span class="text-ocean-900 dark:text-ocean-100">vsc</span>
 				<span class="text-ocean-800 dark:text-ocean-300"
 					>{codeData.workspace}/{codeData.branch}</span
 				>
