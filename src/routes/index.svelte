@@ -8,6 +8,7 @@
 	import Branch from '$lib/components/Branch.svelte';
 	import Language from '$lib/components/Language.svelte';
 	import Workspace from '$lib/components/Workspace.svelte';
+	import ProjectItem from '$lib/components/ProjectItem.svelte';
 	import { getCodeData, getOtherActivities } from '$lib/rpcUtils';
 	// Lanyard stuff
 	import { onMount } from 'svelte';
@@ -54,18 +55,52 @@
 </svelte:head>
 
 <section class="p-24 py-16 font-cascadia z-10 flex justify-between">
-	<div>
+	<div class="flex flex-col gap-7">
 		<h1 class="text-ocean-700 dark:text-ocean-300">
 			<span class="dark:text-ocean-blue">nebula</span>
 			<Workspace workspace={codeData?.workspace} />
 			<Branch name={codeData?.branch} />
 			<Language lang={codeData?.lang} />
 		</h1>
-		<div class="flex flex-col px-3 py-7 gap-2">
-			<span class="text-ocean-900 dark:text-ocean-100">a project</span>
-			<span class="text-ocean-900 dark:text-ocean-100">another project</span>
-			<span class="text-ocean-900 dark:text-ocean-100">yet another project</span>
-			<span class="text-ocean-900 dark:text-ocean-100">you get the point</span>
+		<div>
+			<h1 class="text-ocean-900 dark:text-ocean-100">projects</h1>
+			<ul class="list-disc list-inside text-ocean-700 dark:text-ocean-blue">
+				<ProjectItem
+					href="https://relaying.cloud"
+					name="relaying.cloud"
+					description="phone camera -> browser"
+				/>
+				<ProjectItem
+					href="https://github.com/nebulatgs/fade"
+					name="fade"
+					description="ephemeral virtual machines"
+				/>
+				<ProjectItem
+					href="https://graph.neb.bio"
+					name="graph"
+					description="webgl graphing calculator"
+				/>
+			</ul>
+		</div>
+		<div>
+			<h1 class="text-ocean-900 dark:text-ocean-100">old</h1>
+			<ul class="list-disc list-inside text-ocean-700 dark:text-ocean-blue">
+				<ProjectItem href="https://evosim.neb.bio" name="evosim" description="my first project" />
+				<ProjectItem
+					href="https://boids.neb.bio"
+					name="boids"
+					description="webassembly boid simulation"
+				/>
+				<ProjectItem href="https://solar.neb.bio" name="solar" description="n-body simulation" />
+			</ul>
+		</div>
+		<div>
+			<h1 class="text-ocean-900 dark:text-ocean-100">links</h1>
+			<ul class="list-disc list-inside text-ocean-700 dark:text-ocean-blue">
+				<ProjectItem href="https://twitter.com/nebulatgs" name="twitter" />
+				<ProjectItem href="https://github.com/nebulatgs" name="github" />
+				<ProjectItem href="mailto:nebula@kora.gg" name="email" />
+			</ul>
 		</div>
 	</div>
 	<div class="text-ocean-900 dark:text-ocean-300 flex flex-col items-end gap-7">
