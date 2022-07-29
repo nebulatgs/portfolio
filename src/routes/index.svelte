@@ -59,7 +59,7 @@
 </svelte:head>
 
 <section
-	class="p-8 sm:p-24 sm:py-16 font-cascadia z-10 flex flex-col sm:flex-row gap-y-10 justify-between"
+	class="p-8 sm:p-12 lg:p-24 lg:py-16 font-cascadia z-10 flex flex-col sm:flex-row gap-y-10 justify-between"
 >
 	<div class="flex flex-col gap-7">
 		<div class="min-h-[3em] lg:min-h-0">
@@ -112,7 +112,7 @@
 		</div>
 	</div>
 	<div
-		class="text-ocean-900 dark:text-ocean-300 flex flex-col items-start sm:items-end gap-3 sm:gap-7"
+		class="text-ocean-900 dark:text-ocean-300 flex flex-col items-start sm:items-end gap-3 sm:gap-7 sm:text-right"
 	>
 		{#if !isTimeZoneSame}
 			<div
