@@ -7,8 +7,8 @@
 	// Components
 	import Branch from '$lib/components/Branch.svelte';
 	import Language from '$lib/components/Language.svelte';
-	import Workspace from '$lib/components/Workspace.svelte';
 	import ProjectItem from '$lib/components/ProjectItem.svelte';
+	import Workspace from '$lib/components/Workspace.svelte';
 	import { getCodeData, getOtherActivities } from '$lib/rpcUtils';
 	// Lanyard stuff
 	import { onMount } from 'svelte';
@@ -50,8 +50,12 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>portfolio</title>
+	<meta name="og:title" content="portfolio" />
+	<meta name="description" content="a collection of various things" />
+	<meta name="og:description" content="a collection of various things" />
+	<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9f0f5" />
+	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#281c21" />
 </svelte:head>
 
 <section class="p-24 py-16 font-cascadia z-10 flex justify-between">
