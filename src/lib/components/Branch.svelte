@@ -3,5 +3,7 @@
 </script>
 
 {#if name}
-	on <span class="dark:text-ocean-magenta">  {name}</span>
+	<span class="inline-block">
+		on <span class="dark:text-ocean-magenta inline-block">  {name}</span>
+	</span>
 {/if}

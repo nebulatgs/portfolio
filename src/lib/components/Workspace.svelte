@@ -3,5 +3,7 @@
 </script>
 
 {#if workspace}
-	in <span class="dark:text-ocean-100">{workspace}</span>
+	<span class="inline-block">
+		in <span class="dark:text-ocean-100">{workspace}</span>
+	</span>
 {/if}

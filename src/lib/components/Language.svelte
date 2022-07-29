@@ -21,5 +21,7 @@
 </script>
 
 {#if langMap[lang]}
-	via {@html langMap[lang]}
+	<span class="inline-block">
+		via {@html langMap[lang]}
+	</span>
 {/if}
