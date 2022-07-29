@@ -116,7 +116,7 @@
 		</div>
 	</div>
 	<div
-		class="text-ocean-900 dark:text-ocean-300 flex flex-col items-start sm:items-end gap-3 sm:gap-7 text-right"
+		class="text-ocean-900 dark:text-ocean-300 flex flex-col items-start sm:items-end gap-3 sm:gap-7"
 	>
 		{#if !isTimeZoneSame}
 			<div
