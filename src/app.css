@@ -13,3 +13,32 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+html {
+	scrollbar-color: hsla(0, 0%, 100%, 0.289) transparent;
+	scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+	width: 4px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: hsla(0, 0%, 100%, 0.289);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: hsla(0, 0%, 100%, 0.384);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+	display: none;
+}
