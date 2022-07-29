@@ -59,21 +59,17 @@
 </svelte:head>
 
 <section
-	class="p-8 sm:p-24 sm:py-16 font-cascadia z-10 flex flex-col-reverse sm:flex-row gap-y-10 justify-between"
+	class="p-8 sm:p-24 sm:py-16 font-cascadia z-10 flex flex-col sm:flex-row gap-y-10 justify-between"
 >
-	<h1 class="text-ocean-700 dark:text-ocean-300 inline sm:hidden order-1">
-		<span class="dark:text-ocean-blue">nebula</span>
-		<Workspace workspace={codeData?.workspace} />
-		<Branch name={codeData?.branch} />
-		<Language lang={codeData?.lang} />
-	</h1>
 	<div class="flex flex-col gap-7">
-		<h1 class="text-ocean-700 dark:text-ocean-300 hidden sm:inline">
-			<span class="dark:text-ocean-blue">nebula</span>
-			<Workspace workspace={codeData?.workspace} />
-			<Branch name={codeData?.branch} />
-			<Language lang={codeData?.lang} />
-		</h1>
+		<div class="min-h-[3em] lg:min-h-0">
+			<h1 class="text-ocean-700 dark:text-ocean-300">
+				<span class="dark:text-ocean-blue">nebula</span>
+				<Workspace workspace={codeData?.workspace} />
+				<Branch name={codeData?.branch} />
+				<Language lang={codeData?.lang} />
+			</h1>
+		</div>
 		<div>
 			<h1 class="text-ocean-900 dark:text-ocean-100">projects</h1>
 			<ul class="list-disc list-inside text-ocean-700 dark:text-ocean-blue">
