@@ -74,6 +74,11 @@
 			<h1 class="text-ocean-900 dark:text-ocean-100">projects</h1>
 			<ul class="list-disc list-inside text-ocean-700 dark:text-ocean-blue">
 				<ProjectItem
+					href="https://github.com/nebulatgs/portfolio"
+					name="portfolio"
+					description="the thing"
+				/>
+				<ProjectItem
 					href="https://relaying.cloud"
 					name="relaying.cloud"
 					description="phone camera -> browser"
@@ -84,9 +89,29 @@
 					description="ephemeral virtual machines"
 				/>
 				<ProjectItem
+					href="https://github.com/nebulatgs/particulo"
+					name="particulo"
+					description="opengl particle sim library"
+				/>
+				<ProjectItem
 					href="https://graph.neb.bio"
 					name="graph"
 					description="webgl graphing calculator"
+				/>
+			</ul>
+		</div>
+		<div>
+			<h1 class="text-ocean-900 dark:text-ocean-100">ti84</h1>
+			<ul class="list-disc list-inside text-ocean-700 dark:text-ocean-blue">
+				<ProjectItem
+					href="https://github.com/nebulatgs/calc_boids"
+					name="boids"
+					description="boids in c++ on a calculator"
+				/>
+				<ProjectItem
+					href="https://github.com/nebulatgs/arrayvis_calc"
+					name="arrayvis"
+					description="sorting algorithm visualizer"
 				/>
 			</ul>
 		</div>
