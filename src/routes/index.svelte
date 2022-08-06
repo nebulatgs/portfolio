@@ -10,9 +10,7 @@
 	import ProjectItem from '$lib/components/ProjectItem.svelte';
 	import Workspace from '$lib/components/Workspace.svelte';
 	import { getCodeData, getOtherActivities } from '$lib/rpcUtils';
-	// Lanyard stuff
-	import { onMount } from 'svelte';
-	import type { useLanyard } from 'svelte-lanyard';
+	import { useLanyard } from 'sk-lanyard';
 
 	const timeZone = 'America/New_York';
 	const isTimeZoneSame = Intl.DateTimeFormat().resolvedOptions().timeZone === timeZone;
@@ -40,11 +38,7 @@
 	$: date = dateFormatter.format(now);
 	$: time = timeFormatter.format(now);
 
-	let data: ReturnType<typeof useLanyard>;
-	onMount(async () => {
-		const { useLanyard } = await import('svelte-lanyard');
-		data = useLanyard('524722785302609941');
-	});
+	const data = useLanyard({ method: 'ws', id: '524722785302609941' });
 	$: codeData = getCodeData($data);
 	$: otherActivities = getOtherActivities($data);
 </script>
@@ -170,7 +164,7 @@
 			<div class="flex flex-col items-start sm:items-end">
 				<span class="text-ocean-900 dark:text-ocean-100">vsc</span>
 				<span class="text-ocean-800 dark:text-ocean-300"
-					>{codeData.workspace}/{codeData.branch}</span
+					>{codeData.workspace}{codeData.branch ? `/${codeData.branch}` : ''}</span
 				>
 				<span class="text-ocean-700 dark:text-ocean-400"
 					>currently writing
