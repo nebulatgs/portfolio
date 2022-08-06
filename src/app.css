@@ -20,7 +20,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-	width: 4px;
+	width: 2px;
 	height: 8px;
 }
 
@@ -30,11 +30,6 @@ html {
 
 ::-webkit-scrollbar-thumb {
 	background: hsla(0, 0%, 100%, 0.289);
-	border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: hsla(0, 0%, 100%, 0.384);
 	border-radius: 3px;
 }
 

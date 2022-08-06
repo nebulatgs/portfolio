@@ -29,8 +29,8 @@ export const getCodeData = (data: ExtractData<ReturnType<typeof useLanyard>>): V
     }
 
     const workspace = codeActivity.details?.substring(3).split(' - ')[0];
-    const branch = codeActivity.details?.substring(3).split(' - ')[1];
-    const lang = codeActivity.assets?.large_text?.split(' ')[2]?.toLocaleLowerCase();
+    const branch = codeActivity.details?.substring(3).replaceAll(/\u200b/g, '').trim().split(' - ')[1];
+    const lang = codeActivity.assets?.large_text?.split(' ')[2].toLocaleLowerCase();
 
     return {
         lang,
