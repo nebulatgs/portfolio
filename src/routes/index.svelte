@@ -65,6 +65,26 @@
 			</h1>
 		</div>
 		<div>
+			<h1 class="text-ocean-900 dark:text-ocean-100">wip</h1>
+			<ul class="list-disc list-inside text-ocean-700 dark:text-ocean-blue">
+				<ProjectItem
+					href="https://discord.com/api/oauth2/authorize?client_id=1007289755953799178&permissions=0&scope=bot%20applications.commands"
+					name="solve"
+					description="math discord bot"
+				/>
+				<ProjectItem
+					href="https://github.com/nebulatgs/symbolab_rs"
+					name="symbolab"
+					description="symbolab.com api wrapper + rendering"
+				/>
+				<ProjectItem
+					href="https://notes.neb.bio"
+					name="notes"
+					description="markdown + latex notes"
+				/>
+			</ul>
+		</div>
+		<div>
 			<h1 class="text-ocean-900 dark:text-ocean-100">projects</h1>
 			<ul class="list-disc list-inside text-ocean-700 dark:text-ocean-blue">
 				<ProjectItem
